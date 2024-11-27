@@ -30,9 +30,6 @@ class _MyHomePageState extends State<MyHomePage> {
   // variables to help with the rating system
   double rating = 0;
   int starCount = 5;
-  int likes = 0;
-  var colorLikes = Colors.white;
-  var colorDisLikes = Colors.white;
 
   @override
   Widget build(BuildContext context) {
