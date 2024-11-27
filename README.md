@@ -5,4 +5,4 @@ A movie app for the flutter workshop presented by the programming club.
 Link for the flutter rating package: https://pub.dev/packages/flutter_rating
 
 ### screenshot
-<img src="assets/Screenshot_20241127-112421.png" width="500" height="600">
+<img src="assets/Screenshot_20241127-112421.png" width="540" height="1200">
