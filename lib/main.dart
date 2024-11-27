@@ -27,6 +27,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // variables to help with the rating system
   double rating = 0;
   int starCount = 5;
   int likes = 0;
@@ -38,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 0, 17, 61),
         body: Column(children: [
+          // stack to hold the background image and the gradient
           Stack(
             children: [
               Image.asset(
@@ -61,56 +63,61 @@ class _MyHomePageState extends State<MyHomePage> {
               )
             ],
           ),
-          Padding(
-              padding: const EdgeInsets.only(
-                left: 20,
-                right: 20,
+          // row to hold the movie poster and information
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              //container for the movie information
+              Container(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                width: 220,
+                child:
+                    //column for the movie information
+                    const Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Wicked",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold)),
+                    SizedBox(height: 15),
+                    Text("Directed by Jon M. Chu",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold)),
+                    SizedBox(height: 15),
+                    Text("2024 • PG • 2h 40m",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold)),
+                    SizedBox(height: 30),
+                  ],
+                ),
               ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: 220,
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Wicked",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold)),
-                        SizedBox(height: 15),
-                        Text("Directed by Jon M. Chu",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold)),
-                        SizedBox(height: 15),
-                        Text("2024 • PG • 2h 40m",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold)),
-                        SizedBox(height: 30),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    child: Column(
+              // container for the movie poster
+              Container(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child:
+                    // column for the movie poster
+                    Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            "assets/MoviePoster.jpg",
-                            width: 100,
-                          ),
-                        ]),
-                  ),
-                ],
-              )),
-          SizedBox(height: 10),
+                      Image.asset(
+                        "assets/MoviePoster.jpg",
+                        width: 100,
+                      ),
+                    ]),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          // container for the movie description
           Container(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: const Text(
@@ -120,6 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           const SizedBox(height: 10),
           const Divider(),
+          // star rating system
           StarRating(
             size: 40.0,
             rating: rating,
